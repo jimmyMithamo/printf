@@ -6,5 +6,6 @@
 
 int _printf(const char *format, ...);
 int _putc(char c);
+int putts(char *c);
 
 #endif
