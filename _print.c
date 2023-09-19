@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-				fputs (va_arg(args, const char *), stdout);
+				fputs(va_arg(args, const char *), stdout);
 			}
 		}
 		else
