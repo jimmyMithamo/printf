@@ -16,7 +16,7 @@ int print_binary(va_list list)
 
 	num = va_arg(list, unsigned int);
 	if (num == 0)
-		return (_write_char('0'));
+		return (_putc('0'));
 	if (num < 1)
 		return (-1);
 	len = base_len(num, 2);
@@ -57,7 +57,7 @@ int print_octal(va_list list)
 	num = va_arg(list, unsigned int);
 
 	if (num == 0)
-		return (_write_char('0'));
+		return (_putc('0'));
 	if (num < 1)
 		return (-1);
 	len = base_len(num, 8);
@@ -98,7 +98,7 @@ int print_hex(va_list list)
 	num = va_arg(list, unsigned int);
 
 	if (num == 0)
-		return (_write_char('0'));
+		return (_putc('0'));
 	if (num < 1)
 		return (-1);
 	len = base_len(num, 16);
@@ -144,7 +144,7 @@ int print_heX(va_list list)
 	num = va_arg(list, unsigned int);
 
 	if (num == 0)
-		return (_write_char('0'));
+		return (_putc('0'));
 	if (num < 1)
 		return (-1);
 	len = base_len(num, 16);
