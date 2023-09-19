@@ -3,7 +3,7 @@
 .B _printf
 - A simple re-creation of the printf function
 .SH SYNOPSIS
-To use this function the #include "holberton.h" header is needed.
+To use this function the #include "main.h" header is needed.
 .SH DESCRIPTION
 The _printf() function produces output according to a format which is described
 below. This function write its output to the stdout, the standard output stream.
@@ -27,4 +27,4 @@ printed not counting \\0 for the string.
 .SH BUGS
 No known bugs.
 .SH AUTHOR
-Steven Garcia
+Jimmy Mithamo

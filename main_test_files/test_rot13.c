@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 #include <stdio.h>
 #include <limits.h>
 
@@ -17,7 +17,7 @@ int main(void)
 	_printf("%d\n", a);
 	a = printf("%s\n", "hello");
 	printf("%d\n", a);
-	a = _printf("%R\n", "Holberton school");
+	a = _printf("%R\n", "Alx school");
 	printf("%d\n", a);
 	return (0);
 }
