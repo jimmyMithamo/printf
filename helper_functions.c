@@ -39,7 +39,7 @@ void write_base(char *str)
 {
 	int c;
 
-	for (c = 0; str[c] != '\0'; i++)
+	for (c = 0; str[c] != '\0'; c++)
 		_putc(str[c]);
 }
 

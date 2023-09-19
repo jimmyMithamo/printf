@@ -103,7 +103,7 @@ int print_hex(va_list list)
 	if (num < 1)
 		return (-1);
 	l = base_len(num, 16);
-	hex_rep = malloc(sizeof(char) * len + 1);
+	hex_rep = malloc(sizeof(char) * l + 1);
 	if (hex_rep == NULL)
 		return (-1);
 	for (l = 0; num > 0; l++)
@@ -158,10 +158,10 @@ int print_heX(va_list list)
 		if (rem_num > 9)
 		{
 			rem_num = hex_check(rem_num, 'X');
-			hex_rep[len] = rem_num;
+			hex_rep[l] = rem_num;
 		}
 		else
-			hex_rep[len] = rem_num + 48;
+			hex_rep[l] = rem_num + 48;
 		num = num / 16;
 	}
 	hex_rep[l] = '\0';
