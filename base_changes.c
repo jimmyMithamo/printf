@@ -4,13 +4,14 @@ int hex_check(int, char);
 
 /**
  * print_binary - Converts a number from base 10 to binary
- * @list: List of arguments passed to this function
- * Return: The length of the number printed
+ * @list: arg lists
+ * Return: The length of the printed number
  */
 int print_binary(va_list list)
 {
 	unsigned int num;
-	int i, len;
+	int b;
+	int len;
 	char *str;
 	char *rev_str;
 
@@ -24,15 +25,15 @@ int print_binary(va_list list)
 	if (str == NULL)
 		return (-1);
 
-	for (i = 0; num > 0; i++)
+	for (b = 0; num > 0; b++)
 	{
 		if (num % 2 == 0)
-			str[i] = '0';
+			str[b] = '0';
 		else
-			str[i] = '1';
+			str[b] = '1';
 		num = num / 2;
 	}
-	str[i] = '\0';
+	str[b] = '\0';
 	rev_str = rev_string(str);
 	if (rev_str == NULL)
 		return (-1);
@@ -44,13 +45,13 @@ int print_binary(va_list list)
 
 /**
  * print_octal - Prints the numeric representation of a number in octal base
- * @list: List of all the arguments passed to the program
- * Return: Number of symbols printed to stdout
+ * @list: args lists
+ * Return: symbols printed to stdout
  */
 int print_octal(va_list list)
 {
 	unsigned int num;
-	int len;
+	int l;
 	char *octal_rep;
 	char *rev_str;
 
@@ -60,18 +61,18 @@ int print_octal(va_list list)
 		return (_putc('0'));
 	if (num < 1)
 		return (-1);
-	len = base_len(num, 8);
+	l = base_len(num, 8);
 
-	octal_rep = malloc(sizeof(char) * len + 1);
+	octal_rep = malloc(sizeof(char) * l + 1);
 	if (octal_rep == NULL)
 		return (-1);
-	for (len = 0; num > 0; len++)
+	for (l = 0; num > 0; l++)
 	{
-		octal_rep[len] = (num % 8) + 48;
+		octal_rep[l] = (num % 8) + 48;
 		num = num / 8;
 
 	}
-	octal_rep[len] = '\0';
+	octal_rep[l] = '\0';
 	rev_str = rev_string(octal_rep);
 	if (rev_str == NULL)
 		return (-1);
@@ -79,18 +80,18 @@ int print_octal(va_list list)
 	write_base(rev_str);
 	free(octal_rep);
 	free(rev_str);
-	return (len);
+	return (l);
 }
 
 /**
- * print_hex - Prints a representation of a decimal number on base16 lowercase
- * @list: List of the arguments passed to the function
+ * print_hex - Prints a decimal number on base 16 in lowercase
+ * @list: arg lists
  * Return: Number of characters printed
  */
 int print_hex(va_list list)
 {
 	unsigned int num;
-	int len;
+	int l;
 	int rem_num;
 	char *hex_rep;
 	char *rev_hex;
@@ -101,42 +102,42 @@ int print_hex(va_list list)
 		return (_putc('0'));
 	if (num < 1)
 		return (-1);
-	len = base_len(num, 16);
+	l = base_len(num, 16);
 	hex_rep = malloc(sizeof(char) * len + 1);
 	if (hex_rep == NULL)
 		return (-1);
-	for (len = 0; num > 0; len++)
+	for (l = 0; num > 0; l++)
 	{
 		rem_num = num % 16;
 		if (rem_num > 9)
 		{
 			rem_num = hex_check(rem_num, 'x');
-			hex_rep[len] = rem_num;
+			hex_rep[l] = rem_num;
 		}
 		else
-			hex_rep[len] = rem_num + 48;
+			hex_rep[l] = rem_num + 48;
 		num = num / 16;
 	}
-	hex_rep[len] = '\0';
+	hex_rep[l] = '\0';
 	rev_hex = rev_string(hex_rep);
 	if (rev_hex == NULL)
 		return (-1);
 	write_base(rev_hex);
 	free(hex_rep);
 	free(rev_hex);
-	return (len);
+	return (l);
 }
 
 
 /**
- * print_heX - Prints a representation of a decimal number on base16 Uppercase
- * @list: List of the arguments passed to the function
+ * print_heX - Prints a decimal number on base 16 in Uppercase
+ * @list: arg lists
  * Return: Number of characters printed
  */
 int print_heX(va_list list)
 {
 	unsigned int num;
-	int len;
+	int l;
 	int rem_num;
 	char *hex_rep;
 	char *rev_hex;
@@ -147,11 +148,11 @@ int print_heX(va_list list)
 		return (_putc('0'));
 	if (num < 1)
 		return (-1);
-	len = base_len(num, 16);
-	hex_rep = malloc(sizeof(char) * len + 1);
+	l = base_len(num, 16);
+	hex_rep = malloc(sizeof(char) * l + 1);
 	if (hex_rep == NULL)
 		return (-1);
-	for (len = 0; num > 0; len++)
+	for (l = 0; num > 0; l++)
 	{
 		rem_num = num % 16;
 		if (rem_num > 9)
@@ -163,21 +164,21 @@ int print_heX(va_list list)
 			hex_rep[len] = rem_num + 48;
 		num = num / 16;
 	}
-	hex_rep[len] = '\0';
+	hex_rep[l] = '\0';
 	rev_hex = rev_string(hex_rep);
 	if (rev_hex == NULL)
 		return (-1);
 	write_base(rev_hex);
 	free(hex_rep);
 	free(rev_hex);
-	return (len);
+	return (l);
 }
 
 /**
- * hex_check - Checks which hex function is calling it
+ * hex_check - prints Hexadecimal
  * @num: Number to convert into letter
  * @x: Tells which hex function is calling it
- * Return: Ascii value for a letter
+ * Return: returns Ascii value for a letter
  */
 int hex_check(int num, char x)
 {

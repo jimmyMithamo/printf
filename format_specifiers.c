@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * print_char - Prints character
- * @list: list of arguments
- * Return: Will return the amount of characters printed.
+ * print_char - Prints a character
+ * @list: arg lists
+ * Return: return number of bytes
  */
 int print_char(va_list list)
 {
@@ -12,26 +12,26 @@ int print_char(va_list list)
 
 /**
  * print_string - Prints a string
- * @list: list of arguments
- * Return: Will return the amount of characters printed.
+ * @list: arg lists
+ * Return: number of bytes
  */
 int print_string(va_list list)
 {
-	int i;
+	int s;
 	char *str;
 
 	str = va_arg(list, char *);
 	if (str == NULL)
 		str = "(null)";
-	for (i = 0; str[i] != '\0'; i++)
-		_putc(str[i]);
-	return (i);
+	for (s = 0; str[s] != '\0'; s++)
+		_putc(str[s]);
+	return (s);
 }
 
 /**
- * print_percent - Prints a percent symbol
- * @list: list of arguments
- * Return: Will return the amount of characters printed.
+ * print_percent - Prints %
+ * @list: arg lists
+ * Return: number of bytes
  */
 int print_percent(__attribute__((unused))va_list list)
 {
@@ -41,21 +41,21 @@ int print_percent(__attribute__((unused))va_list list)
 
 /**
  * print_integer - Prints an integer
- * @list: list of arguments
- * Return: Will return the amount of characters printed.
+ * @list: arg lists
+ * Return: return number of bytes
  */
 int print_integer(va_list list)
 {
-	int num_length;
+	int n;
 
-	num_length = print_number(list);
-	return (num_length);
+	n = print_number(list);
+	return (n);
 }
 
 /**
  * unsigned_integer - Prints Unsigned integers
- * @list: List of all of the argumets
- * Return: a count of the numbers
+ * @list: arg lists
+ * Return: number counts
  */
 int unsigned_integer(va_list list)
 {

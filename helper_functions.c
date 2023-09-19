@@ -37,27 +37,27 @@ char *rev_string(char *s)
  */
 void write_base(char *str)
 {
-	int i;
+	int c;
 
-	for (i = 0; str[i] != '\0'; i++)
-		_putc(str[i]);
+	for (c = 0; str[c] != '\0'; i++)
+		_putc(str[c]);
 }
 
 /**
- * base_len - Calculates the length for an octal number
+ * base_len - Calculates length of an octal number
  * @num: The number for which the length is being calculated
- * @base: Base to be calculated by
+ * @base: Base use for calculation
  * Return: An integer representing the length of a number
  */
 unsigned int base_len(unsigned int num, int base)
 {
-	unsigned int i;
+	unsigned int oc;
 
-	for (i = 0; num > 0; i++)
+	for (oc = 0; num > 0; oc++)
 	{
 		num = num / base;
 	}
-	return (i);
+	return (oc);
 }
 
 /**
@@ -69,10 +69,10 @@ unsigned int base_len(unsigned int num, int base)
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int i;
+	unsigned int c;
 
-	for (i = 0; i < n; i++)
-		dest[i] = src[i];
-	dest[i] = '\0';
+	for (c = 0; c < n; c++)
+		dest[c] = src[c];
+	dest[c] = '\0';
 	return (dest);
 }
